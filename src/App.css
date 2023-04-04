@@ -1,38 +1,115 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  overflow-x: hidden;
+}
 .App {
-  text-align: center;
+  overflow: hidden;
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Hide scrollbar for Chrome, Safari and Opera */
+.scroll::-webkit-scrollbar,
+#scroll::-webkit-scrollbar {
+  display: none;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+/* .howbodi-landing-container {
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  background-image: url("./pages/howbodi/assets/bgshape.png");
+  padding: 10rem 0;
+} */
+/* Footer */
+
+.container {
+  display: flex;
+  /* justify-content: center;
+  align-items: center; */
+  /* height: 100vh; */
+}
+.container:hover .backwards {
+  margin: 5px;
+  -moz-transform: scale(1, 1);
+  -webkit-transform: scale(1, 1);
+  -o-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  transform: scale(1, 1);
+}
+.space {
+  padding-left: 50px;
+}
+.container:hover .space {
+  padding-right: 50px;
+  padding-left: 0;
 }
 
-.App-link {
-  color: #61dafb;
+.backwards {
+  display: inline;
+  font-size: 30px;
+  font-style: bold;
+  color: grey;
+  margin: 3px;
+  transition: all 0.9s;
+  -moz-transform: scale(-1, -1);
+  -webkit-transform: scale(-1, -1);
+  -o-transform: scale(-1, -1);
+  -ms-transform: scale(-1, -1);
+  transform: scale(-1, -1);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.reveal{
+  position: relative;
+  transform: translate(250px);
+  opacity: 0;
+  transition: 1s all ease;
+}
+
+.reveal.active{
+  transform: translate(0);
+  opacity: 1;
+}
+
+
+.bubble-container {
+  position: relative;
+  height: 100vh;
+  /* z-index: 10000; */
+}
+
+.bubble {
+  position: absolute;
+  background-color: #7fc7d9;
+  border-radius: 50%;
+  opacity: 0.6;
+  animation: float 6s ease-in-out infinite;
+  animation-delay: calc(-6s * var(--i));
+  /* transform: matrix(1, -0.07, 0.07, 1, 0, 0);
+  background: transparent linear-gradient(181deg, #00fe981c 0%, #00fe98 100%) 0% 0% no-repeat padding-box; */
+}
+
+@keyframes float {
+   0% {
+    transform: translate(0, 0);
   }
-  to {
-    transform: rotate(360deg);
+  25% {
+    transform: translate(100px, -200px);
   }
+  50% {
+    transform: translate(100px, 100);
+  }
+  75% {
+    transform: translate(100px, 50px);
+  }
+  100% {
+    transform: translate(0, 100);
+  }
+  /* 0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translate(-20vh);
+  }
+  100% {
+    transform: translateY(0);
+  } */
 }
